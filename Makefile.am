@@ -12,7 +12,15 @@ CLEANFILES = amqp_framing.h amqp_framing.c
 EXTRA_DIST = \
 	codegen.py \
 	unix/socket.c unix/socket.h \
-	windows/socket.c windows/socket.h
+	windows/socket.c windows/socket.h \
+	windows/build/librabbitmq/librabbitmq.aps \
+	windows/build/librabbitmq/librabbitmq.rc \
+	windows/build/librabbitmq/librabbitmq.sln \
+	windows/build/librabbitmq/librabbitmq.suo \
+	windows/build/librabbitmq/librabbitmq.vcxproj \
+	windows/build/librabbitmq/librabbitmq.vcxproj.filters \
+	windows/build/librabbitmq/librabbitmq.vcxproj.users \
+	windows/build/librabbitmq/resource.h
 
 CODEGEN_PY=$(srcdir)/codegen.py
 
