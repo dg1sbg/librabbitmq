@@ -1,0 +1,45 @@
+This file is an introduction to additions in the librabbitmq API.
+
+1. Library initialization
+
+Two new functions deal with "opening" and "closing" librabbitmq:
+
+RABBITMQ_EXPORT 
+void amqp_lib_open( pfnLogFn_t pLogFn, 
+                    int nLogLevel, 
+                    int nFacility, 
+                    char *pcName );
+
+RABBITMQ_EXPORT 
+void amqp_lib_close( void );
+
+amqp_lib_open allows for passing a log function that gets called whenever an error or a fault is happening within the library. It's a callback interface which caters for differing logging needs. On Unix platforms any log message will also be put into the syslog, depending on the log level and the log facility defined when calling amqp_lib_open. Therefore, you should call this function first before any other amqp_* calls.
+
+amqp_lib_close is the function to call when shutting down your application. It closes the log.
+
+You may check if the library has been initialized using amqp_libopened(). A return result of 0 says "no" and 1 means "yes".
+
+2. Logging functions
+
+RABBITMQ_EXPORT 
+void amgp_log( char *pcFile, int nLine, int nPrio, char *pcFormat, ...)
+
+is the main logging function that is intended to be used from within the library but may as well be used by the application using the library.
+
+3. Error setting / getting
+
+With 
+
+RABBITMQ_EXPORT int amqp_get_error( void );
+RABBITMQ_EXPORT void amqp_clear_error( void );
+
+there are two new helper functions that assist in checking if an error happened within an amqp_* call. You may clear after analyzing it - all the amqp api functions call this new function before doing any work., too.
+
+Feedback, comments always welcome!
+
+Kind regards
+
+  Frank Goenninger, DG1SBG, 2010-08-29
+
+
+
