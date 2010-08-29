@@ -400,7 +400,7 @@ def genHrl(spec):
     def fieldDeclList(fields):
         result = ''.join(["  %s %s;\n" % (cType(f.domain), c_ize(f.name)) for f in fields])
         if( len(result) < 10 ):
-            result = "void *dummy;\n"
+            result = "  void *dummy;\n"
         return result;
 
     def propDeclList(fields):

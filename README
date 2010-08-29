@@ -37,6 +37,12 @@
 The main purpose of this branch of librabbitmq is to provide a non-mingw
 Microsoft Windows DLL being created using Visual Studio.
 
+The relevant VS2010 files are in the
+
+windows/build/librabbitmq
+
+directory...
+
 Enjoy !
 
 Regards

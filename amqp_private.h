@@ -65,14 +65,10 @@ extern "C" {
 #define snprintf sprintf_s
 #define strdup _strdup
 
-#else
-
-#define RABBITMQ_EXPORT EXPORT
-
 #endif
 
 #define MAX_BUFFER_SIZE  1024
-#define DEFAULT_LIB_NAME "LIBRABBITMQ $Version$"
+#define DEFAULT_LIB_NAME "LIBRABBITMQ"
 
 /* Error numbering: Because of differences in error numbering on
  * different platforms, we want to keep error numbers opaque for
